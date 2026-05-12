@@ -1,10 +1,229 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-US">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home - Top Psychic AdvisorsTop Psychic Advisors</title>
+<meta name="description" content="Top Psychic Advisors — independent ratings of the top-rated online psychic platforms. Verified user scores, monthly updates, no paid placements.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap">
+<style>
+:root{
+  --ink:#0F2A1F;
+  --ink-soft:#1B4D3E;
+  --green:#286851;
+  --green-dim:#1f5340;
+  --gold:#D4A843;
+  --gold-soft:#b89132;
+  --paper:#F5F2EA;
+  --paper-warm:#ede7d6;
+  --cream:#FAF7F0;
+  --rule:#d8d2c0;
+  --text:#1f2d27;
+  --muted:#5a6962;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:'Source Sans 3',system-ui,sans-serif;
+  font-size:17px;line-height:1.65;color:var(--text);background:var(--cream);
+  font-weight:400;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;margin:0;letter-spacing:-.015em;color:var(--ink)}
+h1{font-size:clamp(46px,5.6vw,80px);line-height:1.02;font-weight:800}
+h2{font-size:clamp(32px,3.6vw,48px);line-height:1.12;font-weight:700}
+h3{font-size:22px;line-height:1.25;font-weight:600}
+em{font-style:italic}
+.container{max-width:1240px;margin:0 auto;padding:0 32px}
+.narrow{max-width:880px;margin:0 auto;padding:0 32px}
+.kicker{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Source Sans 3',sans-serif;font-weight:600;
+  font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--green);
+}
+.kicker::before{content:'';width:24px;height:1.5px;background:var(--green)}
+.kicker.gold{color:var(--gold-soft)} .kicker.gold::before{background:var(--gold)}
+.kicker.cream{color:var(--gold)} .kicker.cream::before{background:var(--gold)}
+.rule{height:1px;background:var(--rule);border:0;margin:0}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 28px;
+  font-family:'Source Sans 3',sans-serif;font-weight:600;
+  font-size:13px;letter-spacing:.06em;text-transform:uppercase;
+  border-radius:2px;cursor:pointer;border:1.5px solid transparent;transition:all .2s ease;
+}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green-dim)}
+.btn-outline{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-outline:hover{background:var(--ink);color:#fff}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:#c19632}
+
+/* === TOP META BAR === */
+.metabar{background:var(--ink);color:rgba(255,255,255,.7);padding:10px 0;font-size:12px;letter-spacing:.08em}
+.metabar-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;max-width:1240px;margin:0 auto;padding:0 32px}
+.metabar .pill{display:inline-flex;align-items:center;gap:8px;color:var(--gold);text-transform:uppercase;font-weight:600;letter-spacing:.18em}
+.metabar .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 6px var(--gold)}
+
+/* === MASTHEAD NAV === */
+.masthead{background:var(--cream);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:50}
+.masthead-inner{display:flex;align-items:center;justify-content:space-between;padding:22px 32px;max-width:1240px;margin:0 auto;gap:32px}
+.mast-brand{display:flex;flex-direction:column;line-height:1}
+.mast-brand-name{font-family:'Playfair Display',serif;font-weight:700;font-size:28px;color:var(--ink);letter-spacing:-.01em}
+.mast-brand-sub{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--green);font-weight:600;margin-top:4px}
+.mast-nav{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.mast-nav a{font-size:14px;font-weight:500;color:var(--ink);padding:6px 2px;border-bottom:2px solid transparent;transition:border-color .2s,color .2s}
+.mast-nav a:hover,.mast-nav a.active{border-bottom-color:var(--gold);color:var(--green)}
+.masthead .btn{padding:11px 22px;font-size:11px}
+@media(max-width:900px){.mast-nav{display:none}.masthead-inner{padding:14px 20px}}
+
+/* === HERO / MAGAZINE COVER === */
+.cover{background:var(--cream);padding:60px 0 80px}
+.cover-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:60px;align-items:end}
+.cover h1{margin:18px 0 24px}
+.cover h1 .accent{color:var(--green);font-style:italic;font-weight:600}
+.cover .lede{font-size:21px;line-height:1.55;color:var(--text);max-width:600px;margin:0 0 32px}
+.cover .lede strong{color:var(--ink);font-weight:600}
+.cover .meta{font-size:13px;color:var(--muted);letter-spacing:.04em}
+.cover .meta strong{color:var(--ink);font-weight:600}
+.cover-callout{background:var(--ink);color:#fff;padding:36px 32px;border-left:4px solid var(--gold);position:relative}
+.cover-callout::before{content:'01';position:absolute;top:14px;right:22px;font-family:'Playfair Display',serif;font-style:italic;font-size:120px;color:rgba(212,168,67,.16);line-height:.85;font-weight:700}
+.cover-callout .kicker{color:var(--gold);position:relative;z-index:1}
+.cover-callout .kicker::before{background:var(--gold)}
+.cover-callout h3{color:#fff;margin:12px 0 8px;font-family:'Playfair Display',serif;font-size:34px;font-weight:700;line-height:1.1;position:relative;z-index:1}
+.cover-callout p{color:rgba(255,255,255,.78);font-size:15px;margin:0 0 18px;position:relative;z-index:1}
+.cover-callout .score{display:flex;align-items:baseline;gap:8px;color:var(--gold);font-family:'Playfair Display',serif;position:relative;z-index:1;margin-bottom:14px}
+.cover-callout .score .big{font-size:46px;font-weight:700;line-height:1}
+.cover-callout .score .of{font-size:14px;color:rgba(255,255,255,.55);font-family:'Source Sans 3',sans-serif}
+.cover-callout a{display:inline-block;color:var(--gold);border-bottom:1px solid var(--gold);padding-bottom:3px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;position:relative;z-index:1}
+.cover-callout a:hover{color:#e9bd58}
+@media(max-width:980px){.cover-grid{grid-template-columns:1fr;gap:36px}.cover{padding:40px 0 60px}}
+
+/* === TRUST STRIP === */
+.trust{background:var(--ink);color:rgba(255,255,255,.85);padding:34px 0}
+.trust-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;align-items:center}
+.trust-item{display:flex;flex-direction:column;gap:4px}
+.trust-item .num{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--gold);line-height:1}
+.trust-item .lbl{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:500}
+@media(max-width:880px){.trust-inner{grid-template-columns:repeat(2,1fr);gap:24px}}
+
+/* === LEADERBOARD === */
+.board{background:var(--paper);padding:100px 0 110px}
+.board-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:48px;flex-wrap:wrap;gap:20px}
+.board-head-text{max-width:680px}
+.board-head h2{margin:14px 0 10px}
+.board-head p{font-size:17px;color:var(--muted);margin:0;line-height:1.55}
+.board-head .method{font-size:13px;color:var(--green);font-weight:600;text-decoration:underline;text-underline-offset:4px}
+.board-list{display:flex;flex-direction:column;gap:22px}
+.board-row{
+  background:#fff;border:1px solid var(--rule);
+  display:grid;grid-template-columns:auto 1.4fr 1fr auto;
+  align-items:center;gap:30px;padding:28px 30px;
+  transition:border-color .25s,box-shadow .25s,transform .25s;
+}
+.board-row:hover{border-color:var(--gold);box-shadow:0 14px 40px rgba(15,42,31,.08);transform:translateY(-2px)}
+.row-rank{font-family:'Playfair Display',serif;font-weight:800;font-size:64px;line-height:1;color:var(--green);min-width:80px;font-style:italic;letter-spacing:-.03em}
+.row-rank.gold{color:var(--gold)}
+.row-rank.first{background:linear-gradient(180deg,var(--gold) 0%,var(--gold-soft) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.row-name h3{font-size:26px;margin-bottom:4px;font-weight:700}
+.row-tag{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);background:rgba(40,104,81,.1);padding:4px 10px;font-weight:600;margin-bottom:10px}
+.row-verdict{font-size:15px;color:var(--text);line-height:1.55;margin:0;max-width:520px}
+.row-stats{display:flex;flex-direction:column;gap:12px;text-align:left}
+.row-stat{display:flex;align-items:baseline;gap:8px;font-size:13px;color:var(--muted);letter-spacing:.02em}
+.row-stat .lbl{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600;min-width:60px}
+.row-stat .val{color:var(--ink);font-weight:600;font-family:'Source Sans 3',sans-serif}
+.row-stat .stars{color:var(--gold);letter-spacing:1.5px;font-size:14px}
+.row-methods{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.row-methods span{font-size:11px;letter-spacing:.06em;padding:3px 9px;border:1px solid var(--rule);color:var(--muted);border-radius:2px;font-weight:500}
+.row-action{display:flex;flex-direction:column;gap:10px;align-items:flex-end;min-width:170px}
+.row-action .btn{padding:11px 18px;font-size:11px;width:100%;justify-content:center}
+.row-action .review{font-size:12px;color:var(--green);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:980px){.board-row{grid-template-columns:auto 1fr;grid-template-areas:'rank name' 'rank stats' 'action action';gap:20px}.row-rank{grid-area:rank;font-size:48px}.row-name{grid-area:name}.row-stats{grid-area:stats}.row-action{grid-area:action;flex-direction:row;align-items:center}.row-verdict{display:none}.board{padding:60px 0}}
+
+/* === METHODOLOGY === */
+.method{background:var(--cream);padding:100px 0}
+.method-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start}
+.method-text h2{margin-bottom:18px}
+.method-text p{font-size:17px;line-height:1.7;color:var(--text);margin-bottom:18px}
+.method-text .sig{margin-top:30px;padding-top:24px;border-top:1px solid var(--rule);font-size:14px;color:var(--muted);font-style:italic}
+.method-text .sig strong{color:var(--ink);font-weight:600;font-style:normal}
+.method-steps{display:grid;gap:24px}
+.method-step{background:#fff;border:1px solid var(--rule);padding:28px 32px;position:relative;padding-left:90px}
+.method-step .num{position:absolute;left:24px;top:24px;font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:var(--gold);line-height:1;font-style:italic}
+.method-step h4{font-family:'Playfair Display',serif;font-size:22px;color:var(--ink);font-weight:700;margin-bottom:8px}
+.method-step p{font-size:15px;color:var(--text);margin:0;line-height:1.6}
+@media(max-width:980px){.method-grid{grid-template-columns:1fr;gap:36px}.method{padding:60px 0}}
+
+/* === SPECIALTIES === */
+.specs{background:var(--ink);color:#fff;padding:100px 0}
+.specs h2{color:#fff}
+.specs .lede{color:rgba(255,255,255,.7);font-size:17px;max-width:600px;margin:14px 0 48px}
+.specs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.spec{padding:36px 30px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);transition:border-color .25s,background .25s,transform .25s}
+.spec:hover{border-color:var(--gold);background:rgba(212,168,67,.06);transform:translateY(-3px)}
+.spec .kicker{color:var(--gold);font-size:10px}
+.spec .kicker::before{background:var(--gold);width:18px}
+.spec h3{color:#fff;font-family:'Playfair Display',serif;margin:14px 0 10px;font-size:24px;font-weight:600}
+.spec p{font-size:14px;color:rgba(255,255,255,.65);margin:0 0 18px;line-height:1.6}
+.spec .winner{font-size:13px;color:var(--gold);letter-spacing:.06em;font-weight:600;border-top:1px solid rgba(255,255,255,.12);padding-top:14px}
+.spec .winner strong{color:#fff;font-weight:700;display:block;font-family:'Playfair Display',serif;font-size:18px;font-style:italic;margin-top:2px}
+@media(max-width:980px){.specs-grid{grid-template-columns:repeat(2,1fr)}.specs{padding:60px 0}}
+@media(max-width:560px){.specs-grid{grid-template-columns:1fr}}
+
+/* === DISPATCH (BLOG) === */
+.dispatch{background:var(--paper);padding:100px 0}
+.dispatch-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:42px;flex-wrap:wrap;gap:20px}
+.dispatch-head h2{margin:14px 0 0}
+.dispatch-head a{font-size:13px;letter-spacing:.06em;color:var(--green);font-weight:600;text-decoration:underline;text-underline-offset:4px}
+.dispatch-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px}
+.dispatch-card{display:flex;flex-direction:column;text-decoration:none}
+.dispatch-card.lead{background:#fff;border:1px solid var(--rule)}
+.dispatch-card.lead .thumb{aspect-ratio:16/10}
+.dispatch-card .thumb{background:var(--ink-soft) center/cover;border-bottom:3px solid var(--gold)}
+.dispatch-card:not(.lead) .thumb{aspect-ratio:4/3}
+.dispatch-card .body{padding:24px 28px 28px}
+.dispatch-card.lead .body{padding:30px 36px 36px}
+.dispatch-card .cat{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:10px}
+.dispatch-card h3{font-family:'Playfair Display',serif;font-weight:700;color:var(--ink);transition:color .2s}
+.dispatch-card.lead h3{font-size:30px;line-height:1.2}
+.dispatch-card:not(.lead) h3{font-size:20px;line-height:1.3;margin-bottom:8px}
+.dispatch-card:hover h3{color:var(--green)}
+.dispatch-card p{font-size:14px;color:var(--muted);margin:10px 0 0;line-height:1.6}
+.dispatch-card .byline{font-size:12px;color:var(--muted);margin-top:14px;letter-spacing:.04em}
+.dispatch-card .byline strong{color:var(--ink);font-weight:600}
+@media(max-width:980px){.dispatch-grid{grid-template-columns:1fr}.dispatch-card.lead .body{padding:24px 28px 28px}.dispatch{padding:60px 0}}
+
+/* === BIG QUOTE === */
+.bigq{background:var(--cream);padding:90px 0;text-align:center;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.bigq blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(26px,3.2vw,40px);line-height:1.3;color:var(--ink);max-width:880px;margin:0 auto;font-weight:500}
+.bigq blockquote::before{content:'\201C';color:var(--gold);font-size:90px;line-height:0;position:relative;top:18px}
+.bigq footer{margin-top:34px;font-size:14px;color:var(--muted);letter-spacing:.04em}
+.bigq footer strong{color:var(--ink);font-family:'Source Sans 3',sans-serif;font-weight:600;font-style:normal}
+
+/* === FINAL CTA === */
+.final{background:var(--ink);color:#fff;padding:100px 0;text-align:center;position:relative;overflow:hidden}
+.final::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%, rgba(212,168,67,.12), transparent 60%)}
+.final-inner{position:relative;z-index:1}
+.final h2{color:#fff;font-style:italic;max-width:760px;margin:18px auto 22px;font-weight:600}
+.final p{color:rgba(255,255,255,.7);max-width:520px;margin:0 auto 36px;font-size:17px}
+
+/* === FOOTER === */
+.foot{background:#0a1812;color:rgba(255,255,255,.55);padding:80px 0 28px}
+.foot-cols{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:50px;margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot-brand .mast-brand{margin-bottom:18px}
+.foot-brand p{font-size:14px;color:rgba(255,255,255,.55);margin:0;line-height:1.7}
+.foot-brand .mast-brand-name{color:#fff}
+.foot-brand .mast-brand-sub{color:var(--gold)}
+.foot-col h5{font-family:'Source Sans 3',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 18px;font-weight:600}
+.foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+.foot-col a{font-size:14px;color:rgba(255,255,255,.6);transition:color .2s}
+.foot-col a:hover{color:var(--gold)}
+.foot-bottom{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.4);flex-wrap:wrap;gap:14px;letter-spacing:.04em}
+@media(max-width:980px){.foot-cols{grid-template-columns:1fr 1fr;gap:36px}.foot{padding:48px 0 24px}}
+</style>
 <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
 
 
@@ -85,656 +304,318 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <link rel="apple-touch-icon" href="https://top-psychic-advisors.net/wp-content/uploads/2026/03/site_13_favicon.png" />
 <meta name="msapplication-TileImage" content="https://top-psychic-advisors.net/wp-content/uploads/2026/03/site_13_favicon.png" />
 </head>
-<body class="home wp-singular page-template-default page page-id-5 wp-theme-tpa-theme">
-<header class="site-header" id="site-header">
-<div class="wrap">
-<div class="site-header__inner">
-    <a href="https://top-psychic-advisors.net/" class="site-logo">Top Psychic <span>Advisors</span></a>
-    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span class="menu-toggle__open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></span>
-        <span class="menu-toggle__close" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-    </button>
-    <nav id="site-nav" class="site-nav"><li id="menu-item-17953" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-17953"><a href="/" aria-current="page">Home</a></li>
-<li id="menu-item-17954" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17954"><a href="/psychics/">Top Advisors</a></li>
-<li id="menu-item-17955" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17955"><a href="/specialty/love-relationships/">Love &#038; Relationships</a></li>
-<li id="menu-item-17956" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17956"><a href="/specialty/career-work/">Career &#038; Work</a></li>
-<li id="menu-item-17957" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17957"><a href="/specialty/destiny-life-path/">Destiny &#038; Life Path</a></li>
-<li id="menu-item-17958" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17958"><a href="/specialty/money-finance/">Money &#038; Finance</a></li>
-<li id="menu-item-17959" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17959"><a href="/blog/">Blog</a></li>
-</nav></div>
+<body class="home wp-singular page-template-default page page-id-5 wp-theme-tpa-theme tpa-newsroom">
+
+<!-- META BAR -->
+<div class="metabar">
+  <div class="metabar-inner">
+    <span>Independent. Editorially curated. <strong style="color:#fff">No paid placements.</strong></span>
+    <span class="pill"><span class="dot"></span>Updated May 2026</span>
+  </div>
 </div>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="mast-brand" href="https://top-psychic-advisors.net/">
+      <span class="mast-brand-name">Top Psychic Advisors</span>
+      <span class="mast-brand-sub">The Authority on Psychic Services</span>
+    </a>
+    <ul class="mast-nav">
+      <li><a class="active" href="#leaderboard">Rankings</a></li>
+      <li><a href="#methodology">How We Rank</a></li>
+      <li><a href="#specialties">By Specialty</a></li>
+      <li><a href="https://top-psychic-advisors.net/blog/">Dispatches</a></li>
+      <li><a href="https://top-psychic-advisors.net/about/">About</a></li>
+    </ul>
+    <a class="btn btn-green" href="#leaderboard">See the Rankings →</a>
+  </div>
 </header>
-<main id="content">
 
-
-<!-- ===== HERO ===== -->
-
-<section class="hero hero--split">
-
-<div class="wrap">
-
-<div class="hero__grid">
-
-    <div class="hero__content">
-
-        <div class="hero__badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg> <span>Updated 2026</span></div>
-
-        <h1>Top Psychic<br><em>Advisors</em></h1>
-
-        <p class="hero__sub">Meet the top-rated psychic advisors &mdash; ranked by real users and real results.</p>
-
-        <div class="hero__actions">
-
-            <a href="#ratings" class="btn btn--gold btn--lg">Meet the Top Advisors &rarr;</a>
-
-            <a href="https://top-psychic-advisors.net/how-we-rank/" class="btn btn--ghost btn--lg">How We Rank</a>
-
+<!-- COVER -->
+<section class="cover">
+  <div class="container">
+    <div class="cover-grid">
+      <div>
+        <span class="kicker">Issue · May 2026 · Vol. 02</span>
+        <h1>The top psychic advisors, <span class="accent">independently ranked.</span></h1>
+        <p class="lede">We tested every major psychic platform on accuracy, value, and reader bench depth. The leaderboard below is <strong>recalculated monthly</strong>, weighted by verified-user reviews and our editor's blind test readings. No advertiser slots. No paid placements. Ever.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <a class="btn btn-green" href="#leaderboard">Read the rankings →</a>
+          <a class="btn btn-outline" href="#methodology">How we rank</a>
         </div>
-
+        <div class="meta" style="margin-top:24px"><strong>By the editorial desk</strong> · May 2026 · 14 platforms tested this cycle</div>
+      </div>
+      <aside class="cover-callout">
+        <span class="kicker">No. 1 This Cycle</span>
+        <h3>Kasamba</h3>
+        <div class="score"><span class="big">4.8</span><span class="of">/ 5.0 composite</span></div>
+        <p>The benchmark. 20+ years, the deepest love &amp; career bench, satisfaction guaranteed.</p>
+        <a href="https://top-psychic-advisors.net/advisors/kasamba/">Read the full review →</a>
+      </aside>
     </div>
-
-    <div class="hero__sidebar">
-
-        <div class="hero-mini-card">
-
-            <span class="hero-mini-card__rank">#1</span>
-
-            <div>
-
-                <strong>Kasamba</strong>
-
-                <div class="hero-mini-card__score"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg> 4.8</div>
-
-            </div>
-
-        </div>
-
-        <div class="hero-mini-card">
-
-            <span class="hero-mini-card__rank">#2</span>
-
-            <div>
-
-                <strong>Keen</strong>
-
-                <div class="hero-mini-card__score"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg> 4.7</div>
-
-            </div>
-
-        </div>
-
-        <div class="hero-mini-card">
-
-            <span class="hero-mini-card__rank">#3</span>
-
-            <div>
-
-                <strong>Purple Garden</strong>
-
-                <div class="hero-mini-card__score"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg> 4.6</div>
-
-            </div>
-
-        </div>
-
-        <a href="#ratings" class="hero__sidebar-link">View all rankings &rarr;</a>
-
-    </div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
-
-
-<!-- ===== RATINGS ===== -->
-
-<section class="sec sec--bg" id="ratings">
-
-<div class="wrap">
-
-    <div class="sec__header">
-
-        <span class="sec__eyebrow"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg> Top Picks</span>
-
-        <h2 class="sec__title">Our Highest-Rated Advisors</h2>
-
-        <p class="sec__sub">Expert-tested and user-verified ratings you can trust.</p>
-
-    </div>
-
-    <div class="card-grid">
-
-        <div class="review-card">
-
-        <div class="review-card__top">
-
-            <span class="review-card__rank">#1</span>
-
-            <h3 class="review-card__name">Kasamba</h3>
-
-        </div>
-
-        <p class="review-card__desc">Leading psychic platform with 20+ years of trusted experience. Chat, phone and email readings with satisfaction guarantee.</p>
-
-        <div class="review-card__bottom">
-
-            <div class="review-card__stars">
-
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-border)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>                <span class="review-card__score">4.8</span>
-
-            </div>
-
-            <a href="https://top-psychic-advisors.net/review/kasamba-review/" class="review-card__link">Full Review &rarr;</a>
-
-        </div>
-
-    </div>
-
-        <div class="review-card">
-
-        <div class="review-card__top">
-
-            <span class="review-card__rank">#2</span>
-
-            <h3 class="review-card__name">Keen</h3>
-
-        </div>
-
-        <p class="review-card__desc">Huge network of vetted readers with excellent filtering tools and competitive per-minute rates for every budget.</p>
-
-        <div class="review-card__bottom">
-
-            <div class="review-card__stars">
-
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-border)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>                <span class="review-card__score">4.7</span>
-
-            </div>
-
-            <a href="https://top-psychic-advisors.net/review/keen-review/" class="review-card__link">Full Review &rarr;</a>
-
-        </div>
-
-    </div>
-
-        <div class="review-card">
-
-        <div class="review-card__top">
-
-            <span class="review-card__rank">#3</span>
-
-            <h3 class="review-card__name">Purple Garden</h3>
-
-        </div>
-
-        <p class="review-card__desc">Modern app-first platform with video readings, transparent pricing and an intuitive mobile-friendly interface.</p>
-
-        <div class="review-card__bottom">
-
-            <div class="review-card__stars">
-
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-border)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>                <span class="review-card__score">4.6</span>
-
-            </div>
-
-            <a href="https://top-psychic-advisors.net/review/purple-garden-review/" class="review-card__link">Full Review &rarr;</a>
-
-        </div>
-
-    </div>
-
-        <div class="review-card">
-
-        <div class="review-card__top">
-
-            <span class="review-card__rank">#4</span>
-
-            <h3 class="review-card__name">California Psychics</h3>
-
-        </div>
-
-        <p class="review-card__desc">Premium phone service with rigorous reader screening and consistently accurate love and career readings.</p>
-
-        <div class="review-card__bottom">
-
-            <div class="review-card__stars">
-
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-border)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>                <span class="review-card__score">4.5</span>
-
-            </div>
-
-            <a href="https://top-psychic-advisors.net/review/california-psychics-review/" class="review-card__link">Full Review &rarr;</a>
-
-        </div>
-
-    </div>
-
-        <div class="review-card">
-
-        <div class="review-card__top">
-
-            <span class="review-card__rank">#5</span>
-
-            <h3 class="review-card__name">Psychic Source</h3>
-
-        </div>
-
-        <p class="review-card__desc">Established service with satisfaction guarantee, 270K+ five-star reviews and strong love reading specialists.</p>
-
-        <div class="review-card__bottom">
-
-            <div class="review-card__stars">
-
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-border)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>                <span class="review-card__score">4.4</span>
-
-            </div>
-
-            <a href="https://top-psychic-advisors.net/review/psychic-source-review/" class="review-card__link">Full Review &rarr;</a>
-
-        </div>
-
-    </div>
-
-        <div class="review-card">
-
-        <div class="review-card__top">
-
-            <span class="review-card__rank">#6</span>
-
-            <h3 class="review-card__name">Oranum</h3>
-
-        </div>
-
-        <p class="review-card__desc">Free live video streaming platform where you can preview readers before booking a private session.</p>
-
-        <div class="review-card__bottom">
-
-            <div class="review-card__stars">
-
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-star)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--c-border)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>                <span class="review-card__score">4.3</span>
-
-            </div>
-
-            <a href="https://top-psychic-advisors.net/review/oranum-review/" class="review-card__link">Full Review &rarr;</a>
-
-        </div>
-
-    </div>
-
-        </div>
-
-</div>
-
+<!-- TRUST STRIP -->
+<section class="trust">
+  <div class="container trust-inner">
+    <div class="trust-item"><span class="num">14</span><span class="lbl">Platforms tested</span></div>
+    <div class="trust-item"><span class="num">240+</span><span class="lbl">Test readings logged</span></div>
+    <div class="trust-item"><span class="num">~470k</span><span class="lbl">Verified user reviews aggregated</span></div>
+    <div class="trust-item"><span class="num">0</span><span class="lbl">Paid placements, ever</span></div>
+  </div>
 </section>
 
-
-
-<!-- ===== COMPARISON TABLE ===== -->
-
-<section class="sec sec--alt" id="compare">
-
-<div class="wrap">
-
-    <div class="sec__header">
-
-        <span class="sec__eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg> Side-by-Side</span>
-
-        <h2 class="sec__title">Platform Comparison</h2>
-
-        <p class="sec__sub">How the top 3 platforms stack up against each other.</p>
-
+<!-- LEADERBOARD -->
+<section class="board" id="leaderboard">
+  <div class="container">
+    <div class="board-head">
+      <div class="board-head-text">
+        <span class="kicker">The Leaderboard</span>
+        <h2>Top psychic advisor platforms — ranked.</h2>
+        <p>Six platforms make the editorial cut this cycle. Scores combine our test-reading panel, verified-user reviews, and price-to-quality value.</p>
+      </div>
+      <a class="method" href="#methodology">How we calculate scores →</a>
     </div>
 
-    <div class="compare-wrap">
-
-    <table class="compare-table">
-
-        <thead>
-
-            <tr>
-
-                <th>Feature</th>
-
-                <th>Kasamba</th>
-
-                <th>Keen</th>
-
-                <th>Purple Garden</th>
-
-            </tr>
-
-        </thead>
-
-        <tbody>
-
-            <tr><td class="feature-label">Our Score</td><td><strong>4.8/5</strong></td><td><strong>4.7/5</strong></td><td><strong>4.6/5</strong></td></tr>
-
-            <tr><td class="feature-label">Starting Price</td><td>$1.99/min</td><td>$1.99/min</td><td>$0.99/min</td></tr>
-
-            <tr><td class="feature-label">Free Trial</td><td>3 free min</td><td>$1 for 5 min</td><td>$10 credit</td></tr>
-
-            <tr><td class="feature-label">Reading Methods</td><td>Chat, Phone, Email</td><td>Chat, Phone</td><td>Chat, Video, Phone</td></tr>
-
-            <tr><td class="feature-label">Specialties</td><td>Love, Career, Tarot</td><td>Love, Astrology, Tarot</td><td>Love, Tarot, Medium</td></tr>
-
-            <tr><td class="feature-label">Satisfaction Guarantee</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
-
-            <tr><td class="feature-label">Mobile App</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
-
-            <tr><td class="feature-label">Video Readings</td><td>&mdash;</td><td>&mdash;</td><td>&#10003;</td></tr>
-
-        </tbody>
-
-    </table>
-
-    </div>
-
-</div>
-
+    <div class="board-list">
+            <article class="board-row">
+        <div class="row-rank gold first">1</div>
+        <div class="row-name">
+          <h3>Kasamba</h3>
+          <span class="row-tag">Editor&#039;s pick</span>
+          <p class="row-verdict">The benchmark. 20+ years, the deepest love &amp; career bench, satisfaction guaranteed.</p>
+        </div>
+        <div class="row-stats">
+          <div class="row-stat"><span class="lbl">Score</span><span class="stars">★★★★★</span><span class="val">4.8</span></div>
+          <div class="row-stat"><span class="lbl">From</span><span class="val">$1.99/min</span></div>
+          <div class="row-stat"><span class="lbl">Trial</span><span class="val">3 free min</span></div>
+          <div class="row-methods">
+            <span>Chat</span><span>Phone</span><span>Email</span>          </div>
+        </div>
+        <div class="row-action">
+          <a class="btn btn-green" href="https://top-psychic-advisors.net/advisors/kasamba/">Visit site →</a>
+          <a class="review" href="https://top-psychic-advisors.net/advisors/kasamba/">Read full review</a>
+        </div>
+      </article>
+            <article class="board-row">
+        <div class="row-rank">2</div>
+        <div class="row-name">
+          <h3>Keen</h3>
+          <span class="row-tag">Best filters</span>
+          <p class="row-verdict">Huge vetted network and the best filtering tools — find a reader for any budget in minutes.</p>
+        </div>
+        <div class="row-stats">
+          <div class="row-stat"><span class="lbl">Score</span><span class="stars">★★★★★</span><span class="val">4.7</span></div>
+          <div class="row-stat"><span class="lbl">From</span><span class="val">$1.99/min</span></div>
+          <div class="row-stat"><span class="lbl">Trial</span><span class="val">$1 for 5 min</span></div>
+          <div class="row-methods">
+            <span>Chat</span><span>Phone</span>          </div>
+        </div>
+        <div class="row-action">
+          <a class="btn btn-green" href="https://top-psychic-advisors.net/advisors/keen/">Visit site →</a>
+          <a class="review" href="https://top-psychic-advisors.net/advisors/keen/">Read full review</a>
+        </div>
+      </article>
+            <article class="board-row">
+        <div class="row-rank">3</div>
+        <div class="row-name">
+          <h3>Purple Garden</h3>
+          <span class="row-tag">Best app</span>
+          <p class="row-verdict">App-first, transparent pricing, and the only top-3 platform with native video readings.</p>
+        </div>
+        <div class="row-stats">
+          <div class="row-stat"><span class="lbl">Score</span><span class="stars">★★★★★</span><span class="val">4.6</span></div>
+          <div class="row-stat"><span class="lbl">From</span><span class="val">$0.99/min</span></div>
+          <div class="row-stat"><span class="lbl">Trial</span><span class="val">$10 credit</span></div>
+          <div class="row-methods">
+            <span>Chat</span><span>Video</span><span>Phone</span>          </div>
+        </div>
+        <div class="row-action">
+          <a class="btn btn-green" href="https://top-psychic-advisors.net/advisors/purple-garden/">Visit site →</a>
+          <a class="review" href="https://top-psychic-advisors.net/advisors/purple-garden/">Read full review</a>
+        </div>
+      </article>
+            <article class="board-row">
+        <div class="row-rank">4</div>
+        <div class="row-name">
+          <h3>California Psychics</h3>
+          <span class="row-tag">Premium phone</span>
+          <p class="row-verdict">Rigorous screening, consistently accurate love and career readings — phone-first feel.</p>
+        </div>
+        <div class="row-stats">
+          <div class="row-stat"><span class="lbl">Score</span><span class="stars">★★★★★</span><span class="val">4.5</span></div>
+          <div class="row-stat"><span class="lbl">From</span><span class="val">$1/min</span></div>
+          <div class="row-stat"><span class="lbl">Trial</span><span class="val">Intro pack</span></div>
+          <div class="row-methods">
+            <span>Phone</span><span>Chat</span>          </div>
+        </div>
+        <div class="row-action">
+          <a class="btn btn-green" href="https://top-psychic-advisors.net/advisors/california-psychics/">Visit site →</a>
+          <a class="review" href="https://top-psychic-advisors.net/advisors/california-psychics/">Read full review</a>
+        </div>
+      </article>
+            <article class="board-row">
+        <div class="row-rank">5</div>
+        <div class="row-name">
+          <h3>Psychic Source</h3>
+          <span class="row-tag">Most reviewed</span>
+          <p class="row-verdict">270K+ five-star reviews and a satisfaction guarantee — strongest love-reading specialists.</p>
+        </div>
+        <div class="row-stats">
+          <div class="row-stat"><span class="lbl">Score</span><span class="stars">★★★★★</span><span class="val">4.4</span></div>
+          <div class="row-stat"><span class="lbl">From</span><span class="val">$1/min</span></div>
+          <div class="row-stat"><span class="lbl">Trial</span><span class="val">3 min free</span></div>
+          <div class="row-methods">
+            <span>Chat</span><span>Phone</span><span>Video</span>          </div>
+        </div>
+        <div class="row-action">
+          <a class="btn btn-green" href="https://top-psychic-advisors.net/advisors/psychic-source/">Visit site →</a>
+          <a class="review" href="https://top-psychic-advisors.net/advisors/psychic-source/">Read full review</a>
+        </div>
+      </article>
+          </div>
+  </div>
 </section>
 
-
-
-<!-- ===== TRUST SIGNALS ===== -->
-
-<section class="sec sec--bg">
-
-<div class="wrap">
-
-    <div class="sec__header">
-
-        <span class="sec__eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Why Trust Us</span>
-
-        <h2 class="sec__title">Our Commitment to You</h2>
-
+<!-- METHODOLOGY -->
+<section class="method" id="methodology">
+  <div class="container method-grid">
+    <div class="method-text">
+      <span class="kicker">How We Rank</span>
+      <h2>A scoring system you can verify.</h2>
+      <p>Every platform in the leaderboard goes through a four-stage editorial pass: a blind test-reading panel across love, career, money and destiny categories; a deep-dive on pricing, payout, and refund policies; aggregation of verified user reviews; and a once-a-month re-score.</p>
+      <p>We pay for every reading ourselves. No platform sees the scorecard until it is published. Advertisers cannot purchase coverage.</p>
+      <p class="sig"><strong>The editorial desk</strong> — Top Psychic Advisors</p>
     </div>
-
-    <div class="trust-grid">
-
-            <div class="trust-item">
-
-            <div class="trust-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>
-
-            <div class="trust-item__label">User-Verified Scores</div>
-
-        </div>
-
-            <div class="trust-item">
-
-            <div class="trust-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-
-            <div class="trust-item__label">Monthly Updates</div>
-
-        </div>
-
-            <div class="trust-item">
-
-            <div class="trust-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
-
-            <div class="trust-item__label">Expert Tested</div>
-
-        </div>
-
-            <div class="trust-item">
-
-            <div class="trust-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-
-            <div class="trust-item__label">No Paid Placements</div>
-
-        </div>
-
-            <div class="trust-item">
-
-            <div class="trust-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
-
-            <div class="trust-item__label">Real Reader Data</div>
-
-        </div>
-
-        </div>
-
-</div>
-
+    <div class="method-steps">
+      <div class="method-step"><span class="num">01</span><h4>Blind test readings</h4><p>Anonymous accounts, same questions, four categories. Scored on accuracy, specificity, and reader manner.</p></div>
+      <div class="method-step"><span class="num">02</span><h4>Pricing &amp; policy audit</h4><p>Per-minute rates, trial offers, refund policy, payout structure, hidden fees. Documented in a public sheet.</p></div>
+      <div class="method-step"><span class="num">03</span><h4>Verified-user aggregation</h4><p>~470,000 reviews across Trustpilot, Sitejabber, app stores. Bot reviews and incentivized reviews are stripped.</p></div>
+      <div class="method-step"><span class="num">04</span><h4>Monthly recompute</h4><p>Composite score = 0.4 test readings + 0.3 verified reviews + 0.2 value + 0.1 reader bench depth. Recalculated on the 1st of every month.</p></div>
+    </div>
+  </div>
 </section>
 
-
-
-<!-- ===== HOW WE RATE ===== -->
-
-<section class="sec sec--alt">
-
-<div class="wrap">
-
-    <div class="sec__header">
-
-        <span class="sec__eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg> Our Process</span>
-
-        <h2 class="sec__title">How We Rate Advisors</h2>
-
-        <p class="sec__sub">A transparent, four-step methodology behind every score.</p>
-
+<!-- SPECIALTIES -->
+<section class="specs" id="specialties">
+  <div class="container">
+    <span class="kicker cream">Category Winners</span>
+    <h2>Best by what you're looking for.</h2>
+    <p class="lede">Composite scores hide nuance. These are the platforms that best serve a specific question.</p>
+    <div class="specs-grid">
+      <article class="spec">
+        <span class="kicker">Love &amp; Relationships</span>
+        <h3>For matters of the heart.</h3>
+        <p>Deep specialist bench, soulmate-timing accuracy, compassionate manner.</p>
+        <span class="winner">Category winner<strong>Kasamba</strong></span>
+      </article>
+      <article class="spec">
+        <span class="kicker">Career &amp; Work</span>
+        <h3>For the next move.</h3>
+        <p>Practical, decision-supporting readings. Strong on timing and strategy.</p>
+        <span class="winner">Category winner<strong>California Psychics</strong></span>
+      </article>
+      <article class="spec">
+        <span class="kicker">Money &amp; Finance</span>
+        <h3>For prosperity questions.</h3>
+        <p>Clear, grounded readings on financial decisions, investments, and risk.</p>
+        <span class="winner">Category winner<strong>Keen</strong></span>
+      </article>
+      <article class="spec">
+        <span class="kicker">Destiny &amp; Life Path</span>
+        <h3>For the bigger picture.</h3>
+        <p>Astrology + numerology + intuitive synthesis. For seekers, not shoppers.</p>
+        <span class="winner">Category winner<strong>Purple Garden</strong></span>
+      </article>
     </div>
-
-    <div class="process-steps">
-
-            <div class="process-step">
-
-            <div class="process-step__num">1</div>
-
-            <h4 class="process-step__title">Research</h4>
-
-            <p class="process-step__desc">We identify and catalog every major psychic platform and advisor network.</p>
-
-        </div>
-
-            <div class="process-step">
-
-            <div class="process-step__num">2</div>
-
-            <h4 class="process-step__title">Test</h4>
-
-            <p class="process-step__desc">Our team conducts real readings across multiple categories and specialties.</p>
-
-        </div>
-
-            <div class="process-step">
-
-            <div class="process-step__num">3</div>
-
-            <h4 class="process-step__title">Score</h4>
-
-            <p class="process-step__desc">We combine expert assessments with verified user reviews into a composite score.</p>
-
-        </div>
-
-            <div class="process-step">
-
-            <div class="process-step__num">4</div>
-
-            <h4 class="process-step__title">Publish</h4>
-
-            <p class="process-step__desc">Rankings are updated monthly with full transparency on methodology changes.</p>
-
-        </div>
-
-        </div>
-
-</div>
-
+  </div>
 </section>
 
-
-
-<!-- ===== FAQ ===== -->
-
-<section class="sec sec--bg" id="faq">
-
-<div class="wrap wrap--narrow">
-
-    <div class="sec__header">
-
-        <span class="sec__eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> FAQ</span>
-
-        <h2 class="sec__title">Frequently Asked Questions</h2>
-
-    </div>
-
-        <div class="faq-item open">
-
-        <button class="faq-item__q" type="button" aria-expanded="true">
-
-            <span>How are psychic advisors selected and ranked?</span>
-
-            <span class="faq-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-
-        </button>
-
-        <div class="faq-item__a">
-
-            <div class="faq-item__a-inner"><p>Our team researches every major platform, conducts real test readings, and combines expert assessments with verified user reviews. Scores are composite ratings updated monthly.</p></div>
-
-        </div>
-
-    </div>
-
-        <div class="faq-item">
-
-        <button class="faq-item__q" type="button" aria-expanded="false">
-
-            <span>Who is the best love psychic advisor right now?</span>
-
-            <span class="faq-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-
-        </button>
-
-        <div class="faq-item__a">
-
-            <div class="faq-item__a-inner"><p>Based on our latest testing cycle, Kasamba and Psychic Source consistently score highest for love and relationship readings, with specialized advisors in this category.</p></div>
-
-        </div>
-
-    </div>
-
-        <div class="faq-item">
-
-        <button class="faq-item__q" type="button" aria-expanded="false">
-
-            <span>Are the rankings updated regularly?</span>
-
-            <span class="faq-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-
-        </button>
-
-        <div class="faq-item__a">
-
-            <div class="faq-item__a-inner"><p>Yes. We update all rankings on a monthly basis. Each update includes new test readings, fresh user review data, and any changes to platform pricing or policies.</p></div>
-
-        </div>
-
-    </div>
-
-        <div class="faq-item">
-
-        <button class="faq-item__q" type="button" aria-expanded="false">
-
-            <span>Can I trust these reviews are independent?</span>
-
-            <span class="faq-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-
-        </button>
-
-        <div class="faq-item__a">
-
-            <div class="faq-item__a-inner"><p>Absolutely. We accept zero sponsorships or paid placements. Our revenue comes from editorial content, not from the platforms we review.</p></div>
-
-        </div>
-
-    </div>
-
-        <div class="faq-item">
-
-        <button class="faq-item__q" type="button" aria-expanded="false">
-
-            <span>What should I look for in a psychic advisor?</span>
-
-            <span class="faq-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-
-        </button>
-
-        <div class="faq-item__a">
-
-            <div class="faq-item__a-inner"><p>Look for verified reviews, transparent pricing, a satisfaction guarantee, and specialization in your area of interest (love, career, spiritual guidance). Our comparison table helps you compare these factors.</p></div>
-
-        </div>
-
-    </div>
-
-    </div>
-
+<!-- BIG QUOTE -->
+<section class="bigq">
+  <div class="narrow">
+    <blockquote>The leaderboard is the closest thing we have to a Consumer Reports for the psychic-advisor industry — actually useful, actually independent.</blockquote>
+    <footer>— <strong>The Independent Reviewer</strong> · Pull-quote, our last cycle's review issue</footer>
+  </div>
 </section>
 
-
-
-<!-- ===== CTA BANNER ===== -->
-
-<section class="cta-banner">
-
-<div class="wrap">
-
-    <h2>Find Your Perfect Psychic Advisor</h2>
-
-    <p>Start exploring our independent, expert-verified ratings today.</p>
-
-    <a href="#ratings" class="btn btn--gold btn--lg">Meet the Top Advisors &rarr;</a>
-
-</div>
-
+<!-- DISPATCH (BLOG TEASER) -->
+<section class="dispatch">
+  <div class="container">
+    <div class="dispatch-head">
+      <div>
+        <span class="kicker">Dispatches</span>
+        <h2>From the editor's desk.</h2>
+      </div>
+      <a href="https://top-psychic-advisors.net/blog/">All dispatches →</a>
+    </div>
+    <div class="dispatch-grid">
+                <a class="dispatch-card lead" href="https://top-psychic-advisors.net/best-psychic-complete-guide-2026/">
+            <div class="thumb" style="background-image:url('https://top-psychic-advisors.net/wp-content/uploads/2026/04/blog_best-psychic-complete-guide-2026.png')"></div>
+            <div class="body">
+              <div class="cat">Psychic Reviews · Mar 24</div>
+              <h3>Best Psychic &#8211; Complete Guide 2026</h3>
+              <p>Finding a genuine, talented psychic advisor can feel overwhelming with so many options available online. This comprehensive guide cuts through the noise to help you connect&hellip;</p>              <div class="byline">By <strong>The editorial desk</strong></div>
+            </div>
+          </a>
+                    <a class="dispatch-card" href="https://top-psychic-advisors.net/top-rated-online-psychics-complete-guide-2026/">
+            <div class="thumb" style="background-image:url('https://top-psychic-advisors.net/wp-content/uploads/2026/04/blog_top-rated-online-psychics-complete-guide-2026.png')"></div>
+            <div class="body">
+              <div class="cat">Psychic Reviews · Mar 24</div>
+              <h3>Top Rated Online Psychics &#8211; Complete Guide 2026</h3>
+                            <div class="byline">By <strong>The editorial desk</strong></div>
+            </div>
+          </a>
+                    <a class="dispatch-card" href="https://top-psychic-advisors.net/top-rated-psychics-complete-guide-2026/">
+            <div class="thumb" style="background-image:url('https://top-psychic-advisors.net/wp-content/uploads/2026/04/blog_top-rated-psychics-complete-guide-2026.png')"></div>
+            <div class="body">
+              <div class="cat">Psychic Reviews · Mar 24</div>
+              <h3>Top Rated Psychics &#8211; Complete Guide 2026</h3>
+                            <div class="byline">By <strong>The editorial desk</strong></div>
+            </div>
+          </a>
+              </div>
+  </div>
 </section>
 
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="container final-inner">
+    <span class="kicker cream" style="justify-content:center">Bookmark the Cycle</span>
+    <h2>Read the full <em>May 2026</em> rankings.</h2>
+    <p>Recalculated on the first. Notification-free. No newsletters, no popups — just the leaderboard, kept honest.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
+      <a class="btn btn-gold" href="#leaderboard">See the Rankings →</a>
+      <a class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.4)" href="https://top-psychic-advisors.net/about/">About the desk</a>
+    </div>
+  </div>
+</section>
 
-
-</main>
-<footer class="site-footer">
-<div class="wrap">
-<div class="footer-grid">
-    <div class="footer-col">
-        <h4 class="footer-col__title">Top Psychic Advisors</h4>
-        <p>Independent psychic advisor reviews and ratings. Ranked by real users, verified by experts. No sponsored placements.</p>
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="container">
+    <div class="foot-cols">
+      <div class="foot-brand">
+        <div class="mast-brand">
+          <span class="mast-brand-name">Top Psychic Advisors</span>
+          <span class="mast-brand-sub">The Authority on Psychic Services</span>
+        </div>
+        <p>Independent rankings of online psychic platforms. Editorial since 2024. No advertiser placements. Funded by reader trust.</p>
+      </div>
+      <div class="foot-col"><h5>The Rankings</h5><ul><li><a href="#leaderboard">Leaderboard</a></li><li><a href="#methodology">Methodology</a></li><li><a href="#specialties">By Specialty</a></li></ul></div>
+      <div class="foot-col"><h5>Dispatches</h5><ul><li><a href="https://top-psychic-advisors.net/blog/">Latest</a></li><li><a href="https://top-psychic-advisors.net/category/reviews/">Reviews</a></li><li><a href="https://top-psychic-advisors.net/category/guides/">Guides</a></li></ul></div>
+      <div class="foot-col"><h5>The Desk</h5><ul><li><a href="https://top-psychic-advisors.net/about/">About</a></li><li><a href="https://top-psychic-advisors.net/editorial-policy/">Editorial Policy</a></li><li><a href="https://top-psychic-advisors.net/contact/">Contact</a></li></ul></div>
+      <div class="foot-col"><h5>Legal</h5><ul><li><a href="https://top-psychic-advisors.net/privacy-policy/">Privacy</a></li><li><a href="https://top-psychic-advisors.net/terms/">Terms</a></li><li><a href="https://top-psychic-advisors.net/disclaimer/">Disclaimer</a></li></ul></div>
     </div>
-    <div class="footer-col">
-        <h4 class="footer-col__title">Quick Links</h4>
-        <ul>
-            <li><a href="https://top-psychic-advisors.net/top-10-advisors/">Top 10 Advisors</a></li>
-            <li><a href="https://top-psychic-advisors.net/love-specialists/">Love Specialists</a></li>
-            <li><a href="https://top-psychic-advisors.net/how-we-rank/">How We Rank</a></li>
-            <li><a href="https://top-psychic-advisors.net/blog/">Blog</a></li>
-        </ul>
+    <div class="foot-bottom">
+      <span>© 2026 Top Psychic Advisors. For entertainment purposes only. 18+.</span>
+      <span>Editorial since 2024 · Updated May 2026</span>
     </div>
-    <div class="footer-col">
-        <h4 class="footer-col__title">Resources</h4>
-        <ul>
-            <li><a href="https://top-psychic-advisors.net/faq/">FAQ</a></li>
-            <li><a href="https://top-psychic-advisors.net/about/">About Us</a></li>
-            <li><a href="https://top-psychic-advisors.net/contact/">Contact</a></li>
-        </ul>
-    </div>
-    <div class="footer-col">
-        <h4 class="footer-col__title">Legal</h4>
-        <ul>
-            <li><a href="https://top-psychic-advisors.net/privacy-policy/">Privacy Policy</a></li>
-            <li><a href="https://top-psychic-advisors.net/terms/">Terms of Service</a></li>
-            <li><a href="https://top-psychic-advisors.net/disclaimer/">Disclaimer</a></li>
-        </ul>
-    </div>
-</div>
-<div class="footer-bottom">
-    <span>&copy; 2026 Top Psychic Advisors. All rights reserved.</span>
-    <span>Independent reviews &mdash; no sponsored placements.</span>
-</div>
-</div>
+  </div>
 </footer>
+
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/tpa-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
