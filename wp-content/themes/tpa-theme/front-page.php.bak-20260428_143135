@@ -1,0 +1,208 @@
+<?php get_header(); ?>
+
+<!-- ===== HERO ===== -->
+<section class="hero hero--split">
+<div class="wrap">
+<div class="hero__grid">
+    <div class="hero__content">
+        <div class="hero__badge"><?php echo tpa_icon('star'); ?> <span>Updated 2026</span></div>
+        <h1>Top Psychic<br><em>Advisors</em></h1>
+        <p class="hero__sub">Meet the top-rated psychic advisors &mdash; ranked by real users and real results.</p>
+        <div class="hero__actions">
+            <a href="#ratings" class="btn btn--gold btn--lg">Meet the Top Advisors &rarr;</a>
+            <a href="<?php echo esc_url(home_url('/how-we-rank/')); ?>" class="btn btn--ghost btn--lg">How We Rank</a>
+        </div>
+    </div>
+    <div class="hero__sidebar">
+        <div class="hero-mini-card">
+            <span class="hero-mini-card__rank">#1</span>
+            <div>
+                <strong>Kasamba</strong>
+                <div class="hero-mini-card__score"><?php echo tpa_icon('star'); ?> 4.8</div>
+            </div>
+        </div>
+        <div class="hero-mini-card">
+            <span class="hero-mini-card__rank">#2</span>
+            <div>
+                <strong>Keen</strong>
+                <div class="hero-mini-card__score"><?php echo tpa_icon('star'); ?> 4.7</div>
+            </div>
+        </div>
+        <div class="hero-mini-card">
+            <span class="hero-mini-card__rank">#3</span>
+            <div>
+                <strong>Purple Garden</strong>
+                <div class="hero-mini-card__score"><?php echo tpa_icon('star'); ?> 4.6</div>
+            </div>
+        </div>
+        <a href="#ratings" class="hero__sidebar-link">View all rankings &rarr;</a>
+    </div>
+</div>
+</div>
+</section>
+
+<!-- ===== RATINGS ===== -->
+<section class="sec sec--bg" id="ratings">
+<div class="wrap">
+    <div class="sec__header">
+        <span class="sec__eyebrow"><?php echo tpa_icon('star'); ?> Top Picks</span>
+        <h2 class="sec__title">Our Highest-Rated Advisors</h2>
+        <p class="sec__sub">Expert-tested and user-verified ratings you can trust.</p>
+    </div>
+    <div class="card-grid">
+    <?php
+    $items = [
+        ['name'=>'Kasamba','slug'=>'kasamba-review',             'score'=>4.8, 'desc'=>'Leading psychic platform with 20+ years of trusted experience. Chat, phone and email readings with satisfaction guarantee.'],
+        ['name'=>'Keen','slug'=>'keen-review',                'score'=>4.7, 'desc'=>'Huge network of vetted readers with excellent filtering tools and competitive per-minute rates for every budget.'],
+        ['name'=>'Purple Garden','slug'=>'purple-garden-review',       'score'=>4.6, 'desc'=>'Modern app-first platform with video readings, transparent pricing and an intuitive mobile-friendly interface.'],
+        ['name'=>'California Psychics','slug'=>'california-psychics-review', 'score'=>4.5, 'desc'=>'Premium phone service with rigorous reader screening and consistently accurate love and career readings.'],
+        ['name'=>'Psychic Source','slug'=>'psychic-source-review',      'score'=>4.4, 'desc'=>'Established service with satisfaction guarantee, 270K+ five-star reviews and strong love reading specialists.'],
+        ['name'=>'Oranum','slug'=>'oranum-review',              'score'=>4.3, 'desc'=>'Free live video streaming platform where you can preview readers before booking a private session.'],
+    ];
+    foreach ( $items as $i => $item ) :
+        $full_stars = floor($item['score']);
+    ?>
+    <div class="review-card">
+        <div class="review-card__top">
+            <span class="review-card__rank">#<?php echo $i + 1; ?></span>
+            <h3 class="review-card__name"><?php echo esc_html($item['name']); ?></h3>
+        </div>
+        <p class="review-card__desc"><?php echo esc_html($item['desc']); ?></p>
+        <div class="review-card__bottom">
+            <div class="review-card__stars">
+                <?php echo tpa_stars($full_stars); ?>
+                <span class="review-card__score"><?php echo number_format($item['score'], 1); ?></span>
+            </div>
+            <a href="<?php echo esc_url(home_url('/review/' . $item['slug'] . '/')); ?>" class="review-card__link">Full Review &rarr;</a>
+        </div>
+    </div>
+    <?php endforeach; ?>
+    </div>
+</div>
+</section>
+
+<!-- ===== COMPARISON TABLE ===== -->
+<section class="sec sec--alt" id="compare">
+<div class="wrap">
+    <div class="sec__header">
+        <span class="sec__eyebrow"><?php echo tpa_icon('bar'); ?> Side-by-Side</span>
+        <h2 class="sec__title">Platform Comparison</h2>
+        <p class="sec__sub">How the top 3 platforms stack up against each other.</p>
+    </div>
+    <div class="compare-wrap">
+    <table class="compare-table">
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>Kasamba</th>
+                <th>Keen</th>
+                <th>Purple Garden</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td class="feature-label">Our Score</td><td><strong>4.8/5</strong></td><td><strong>4.7/5</strong></td><td><strong>4.6/5</strong></td></tr>
+            <tr><td class="feature-label">Starting Price</td><td>$1.99/min</td><td>$1.99/min</td><td>$0.99/min</td></tr>
+            <tr><td class="feature-label">Free Trial</td><td>3 free min</td><td>$1 for 5 min</td><td>$10 credit</td></tr>
+            <tr><td class="feature-label">Reading Methods</td><td>Chat, Phone, Email</td><td>Chat, Phone</td><td>Chat, Video, Phone</td></tr>
+            <tr><td class="feature-label">Specialties</td><td>Love, Career, Tarot</td><td>Love, Astrology, Tarot</td><td>Love, Tarot, Medium</td></tr>
+            <tr><td class="feature-label">Satisfaction Guarantee</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
+            <tr><td class="feature-label">Mobile App</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
+            <tr><td class="feature-label">Video Readings</td><td>&mdash;</td><td>&mdash;</td><td>&#10003;</td></tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+</section>
+
+<!-- ===== TRUST SIGNALS ===== -->
+<section class="sec sec--bg">
+<div class="wrap">
+    <div class="sec__header">
+        <span class="sec__eyebrow"><?php echo tpa_icon('shield'); ?> Why Trust Us</span>
+        <h2 class="sec__title">Our Commitment to You</h2>
+    </div>
+    <div class="trust-grid">
+    <?php
+    $trust = [
+        ['icon'=>'check',  'label'=>'User-Verified Scores'],
+        ['icon'=>'clock',  'label'=>'Monthly Updates'],
+        ['icon'=>'search', 'label'=>'Expert Tested'],
+        ['icon'=>'shield', 'label'=>'No Paid Placements'],
+        ['icon'=>'users',  'label'=>'Real Reader Data'],
+    ];
+    foreach ( $trust as $t ) : ?>
+        <div class="trust-item">
+            <div class="trust-item__icon"><?php echo tpa_icon($t['icon']); ?></div>
+            <div class="trust-item__label"><?php echo esc_html($t['label']); ?></div>
+        </div>
+    <?php endforeach; ?>
+    </div>
+</div>
+</section>
+
+<!-- ===== HOW WE RATE ===== -->
+<section class="sec sec--alt">
+<div class="wrap">
+    <div class="sec__header">
+        <span class="sec__eyebrow"><?php echo tpa_icon('bar'); ?> Our Process</span>
+        <h2 class="sec__title">How We Rate Advisors</h2>
+        <p class="sec__sub">A transparent, four-step methodology behind every score.</p>
+    </div>
+    <div class="process-steps">
+    <?php
+    $steps = [
+        ['num'=>'1','title'=>'Research','desc'=>'We identify and catalog every major psychic platform and advisor network.'],
+        ['num'=>'2','title'=>'Test','desc'=>'Our team conducts real readings across multiple categories and specialties.'],
+        ['num'=>'3','title'=>'Score','desc'=>'We combine expert assessments with verified user reviews into a composite score.'],
+        ['num'=>'4','title'=>'Publish','desc'=>'Rankings are updated monthly with full transparency on methodology changes.'],
+    ];
+    foreach ( $steps as $s ) : ?>
+        <div class="process-step">
+            <div class="process-step__num"><?php echo esc_html($s['num']); ?></div>
+            <h4 class="process-step__title"><?php echo esc_html($s['title']); ?></h4>
+            <p class="process-step__desc"><?php echo esc_html($s['desc']); ?></p>
+        </div>
+    <?php endforeach; ?>
+    </div>
+</div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="sec sec--bg" id="faq">
+<div class="wrap wrap--narrow">
+    <div class="sec__header">
+        <span class="sec__eyebrow"><?php echo tpa_icon('plus'); ?> FAQ</span>
+        <h2 class="sec__title">Frequently Asked Questions</h2>
+    </div>
+    <?php
+    $faqs = [
+        ['q'=>'How are psychic advisors selected and ranked?','a'=>'Our team researches every major platform, conducts real test readings, and combines expert assessments with verified user reviews. Scores are composite ratings updated monthly.'],
+        ['q'=>'Who is the best love psychic advisor right now?','a'=>'Based on our latest testing cycle, Kasamba and Psychic Source consistently score highest for love and relationship readings, with specialized advisors in this category.'],
+        ['q'=>'Are the rankings updated regularly?','a'=>'Yes. We update all rankings on a monthly basis. Each update includes new test readings, fresh user review data, and any changes to platform pricing or policies.'],
+        ['q'=>'Can I trust these reviews are independent?','a'=>'Absolutely. We accept zero sponsorships or paid placements. Our revenue comes from editorial content, not from the platforms we review.'],
+        ['q'=>'What should I look for in a psychic advisor?','a'=>'Look for verified reviews, transparent pricing, a satisfaction guarantee, and specialization in your area of interest (love, career, spiritual guidance). Our comparison table helps you compare these factors.'],
+    ];
+    foreach ( $faqs as $i => $faq ) : ?>
+    <div class="faq-item<?php echo $i === 0 ? ' open' : ''; ?>">
+        <button class="faq-item__q" type="button" aria-expanded="<?php echo $i === 0 ? 'true' : 'false'; ?>">
+            <span><?php echo esc_html($faq['q']); ?></span>
+            <span class="faq-item__icon"><?php echo tpa_icon('plus'); ?></span>
+        </button>
+        <div class="faq-item__a">
+            <div class="faq-item__a-inner"><p><?php echo esc_html($faq['a']); ?></p></div>
+        </div>
+    </div>
+    <?php endforeach; ?>
+</div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<section class="cta-banner">
+<div class="wrap">
+    <h2>Find Your Perfect Psychic Advisor</h2>
+    <p>Start exploring our independent, expert-verified ratings today.</p>
+    <a href="#ratings" class="btn btn--gold btn--lg">Meet the Top Advisors &rarr;</a>
+</div>
+</section>
+
+<?php get_footer(); ?>

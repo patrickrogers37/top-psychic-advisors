@@ -1,0 +1,45 @@
+<?php
+/**
+ * Front Page — Top Psychic Advisors 2026 Redesign (Direction A · Editorial Mystical)
+ * Self-contained landing template: bypasses header.php / footer.php and renders
+ * the React + Babel mockup verbatim. Pattern matches fpc-landing / inner-compass / the-ledger.
+ */
+$assets = get_stylesheet_directory_uri() . '/assets/redesign-2026';
+$wp_advisors = function_exists('tpa_all_advisors') ? tpa_all_advisors() : [];
+?><!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="<?php bloginfo('charset'); ?>"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#141333"/>
+<title><?php wp_title('|', true, 'right'); bloginfo('name'); ?></title>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<link rel="stylesheet" href="<?php echo esc_url($assets); ?>/styles.css?v=2026.04"/>
+<style>html,body{margin:0;background:#141333;}</style>
+<?php wp_head(); ?>
+</head>
+<body <?php body_class('tpa-redesign-2026'); ?>>
+<div id="root"></div>
+
+<script>window.WP_ADVISORS = <?php echo wp_json_encode($wp_advisors, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?>;</script>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+<script type="text/babel" data-presets="env,react" src="<?php echo esc_url($assets); ?>/crests.jsx?v=2026.04"></script>
+<script type="text/babel" data-presets="env,react" src="<?php echo esc_url($assets); ?>/data.jsx?v=2026.04"></script>
+<script type="text/babel" data-presets="env,react" src="<?php echo esc_url($assets); ?>/direction-a.jsx?v=2026.04"></script>
+<script type="text/babel" data-presets="env,react">
+  // Babel-standalone executes scripts in source order; wait one tick so window.DirectionA exists.
+  setTimeout(() => {
+    if (window.DirectionA) {
+      ReactDOM.createRoot(document.getElementById('root')).render(<DirectionA/>);
+    } else {
+      console.error('DirectionA not loaded');
+    }
+  }, 0);
+</script>
+<?php wp_footer(); ?>
+</body>
+</html>

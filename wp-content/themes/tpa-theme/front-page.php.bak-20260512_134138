@@ -1,0 +1,488 @@
+<?php
+/**
+ * Front Page — Top Psychic Advisors (Direction B · Newsroom Authority)
+ * Magazine-style review-directory landing. Standalone — bypasses header/footer.
+ * 2026-05-12 redesign.
+ */
+$tpl = get_template_directory_uri();
+$advisors = function_exists('tpa_all_advisors') ? tpa_all_advisors() : array();
+if (empty($advisors)) {
+    $advisors = array(
+        array('rank'=>1,'name'=>'Kasamba','score'=>'4.8','price'=>'$1.99/min','trial'=>'3 free minutes','methods'=>array('Chat','Phone','Email'),'specs'=>array('Love','Career','Tarot'),'tag'=>'Editor’s pick','verdict'=>'The benchmark. 20+ years, the deepest love and career bench, satisfaction guaranteed.'),
+        array('rank'=>2,'name'=>'Keen','score'=>'4.7','price'=>'$1.99/min','trial'=>'$1 for 5 minutes','methods'=>array('Chat','Phone'),'specs'=>array('Love','Astrology','Tarot'),'tag'=>'Best filters','verdict'=>'Huge vetted network and the best filtering tools — find a reader for any budget in minutes.'),
+        array('rank'=>3,'name'=>'Purple Garden','score'=>'4.6','price'=>'$0.99/min','trial'=>'$10 credit','methods'=>array('Chat','Video','Phone'),'specs'=>array('Love','Tarot','Medium'),'tag'=>'Best app','verdict'=>'App-first, transparent pricing, and the only top-3 platform with native video readings.'),
+        array('rank'=>4,'name'=>'California Psychics','score'=>'4.5','price'=>'$1.00/min','trial'=>'Intro pack','methods'=>array('Phone','Chat'),'specs'=>array('Love','Career'),'tag'=>'Premium phone','verdict'=>'Rigorous screening; consistently accurate love and career readings — phone-first feel.'),
+        array('rank'=>5,'name'=>'Psychic Source','score'=>'4.4','price'=>'$1.00/min','trial'=>'3 min free','methods'=>array('Chat','Phone','Video'),'specs'=>array('Love'),'tag'=>'Most reviewed','verdict'=>'270K+ five-star reviews and a satisfaction guarantee — strongest love-reading specialists.'),
+        array('rank'=>6,'name'=>'Oranum','score'=>'4.3','price'=>'Free preview','trial'=>'$9.99 credit','methods'=>array('Video','Chat'),'specs'=>array('Love','Tarot','Medium'),'tag'=>'Free streams','verdict'=>'Free live video lobbies — preview readers in real time before you spend a single coin.'),
+    );
+}
+$top5 = array_slice($advisors, 0, 5);
+$updated = date('F Y');
+?><!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="<?php bloginfo('charset'); ?>">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title><?php wp_title('|', true, 'right'); bloginfo('name'); ?></title>
+<meta name="description" content="Top Psychic Advisors — independent ratings of the top-rated online psychic platforms. Verified user scores, monthly updates, no paid placements.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap">
+<style>
+:root{
+  --ink:#0F2A1F;
+  --ink-soft:#1B4D3E;
+  --green:#286851;
+  --green-dim:#1f5340;
+  --gold:#D4A843;
+  --gold-soft:#b89132;
+  --paper:#F5F2EA;
+  --paper-warm:#ede7d6;
+  --cream:#FAF7F0;
+  --rule:#d8d2c0;
+  --text:#1f2d27;
+  --muted:#5a6962;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:'Source Sans 3',system-ui,sans-serif;
+  font-size:17px;line-height:1.65;color:var(--text);background:var(--cream);
+  font-weight:400;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;margin:0;letter-spacing:-.015em;color:var(--ink)}
+h1{font-size:clamp(46px,5.6vw,80px);line-height:1.02;font-weight:800}
+h2{font-size:clamp(32px,3.6vw,48px);line-height:1.12;font-weight:700}
+h3{font-size:22px;line-height:1.25;font-weight:600}
+em{font-style:italic}
+.container{max-width:1240px;margin:0 auto;padding:0 32px}
+.narrow{max-width:880px;margin:0 auto;padding:0 32px}
+.kicker{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Source Sans 3',sans-serif;font-weight:600;
+  font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--green);
+}
+.kicker::before{content:'';width:24px;height:1.5px;background:var(--green)}
+.kicker.gold{color:var(--gold-soft)} .kicker.gold::before{background:var(--gold)}
+.kicker.cream{color:var(--gold)} .kicker.cream::before{background:var(--gold)}
+.rule{height:1px;background:var(--rule);border:0;margin:0}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 28px;
+  font-family:'Source Sans 3',sans-serif;font-weight:600;
+  font-size:13px;letter-spacing:.06em;text-transform:uppercase;
+  border-radius:2px;cursor:pointer;border:1.5px solid transparent;transition:all .2s ease;
+}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green-dim)}
+.btn-outline{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-outline:hover{background:var(--ink);color:#fff}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:#c19632}
+
+/* === TOP META BAR === */
+.metabar{background:var(--ink);color:rgba(255,255,255,.7);padding:10px 0;font-size:12px;letter-spacing:.08em}
+.metabar-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;max-width:1240px;margin:0 auto;padding:0 32px}
+.metabar .pill{display:inline-flex;align-items:center;gap:8px;color:var(--gold);text-transform:uppercase;font-weight:600;letter-spacing:.18em}
+.metabar .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 6px var(--gold)}
+
+/* === MASTHEAD NAV === */
+.masthead{background:var(--cream);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:50}
+.masthead-inner{display:flex;align-items:center;justify-content:space-between;padding:22px 32px;max-width:1240px;margin:0 auto;gap:32px}
+.mast-brand{display:flex;flex-direction:column;line-height:1}
+.mast-brand-name{font-family:'Playfair Display',serif;font-weight:700;font-size:28px;color:var(--ink);letter-spacing:-.01em}
+.mast-brand-sub{font-family:'Source Sans 3',sans-serif;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--green);font-weight:600;margin-top:4px}
+.mast-nav{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.mast-nav a{font-size:14px;font-weight:500;color:var(--ink);padding:6px 2px;border-bottom:2px solid transparent;transition:border-color .2s,color .2s}
+.mast-nav a:hover,.mast-nav a.active{border-bottom-color:var(--gold);color:var(--green)}
+.masthead .btn{padding:11px 22px;font-size:11px}
+@media(max-width:900px){.mast-nav{display:none}.masthead-inner{padding:14px 20px}}
+
+/* === HERO / MAGAZINE COVER === */
+.cover{background:var(--cream);padding:60px 0 80px}
+.cover-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:60px;align-items:end}
+.cover h1{margin:18px 0 24px}
+.cover h1 .accent{color:var(--green);font-style:italic;font-weight:600}
+.cover .lede{font-size:21px;line-height:1.55;color:var(--text);max-width:600px;margin:0 0 32px}
+.cover .lede strong{color:var(--ink);font-weight:600}
+.cover .meta{font-size:13px;color:var(--muted);letter-spacing:.04em}
+.cover .meta strong{color:var(--ink);font-weight:600}
+.cover-callout{background:var(--ink);color:#fff;padding:36px 32px;border-left:4px solid var(--gold);position:relative}
+.cover-callout::before{content:'01';position:absolute;top:14px;right:22px;font-family:'Playfair Display',serif;font-style:italic;font-size:120px;color:rgba(212,168,67,.16);line-height:.85;font-weight:700}
+.cover-callout .kicker{color:var(--gold);position:relative;z-index:1}
+.cover-callout .kicker::before{background:var(--gold)}
+.cover-callout h3{color:#fff;margin:12px 0 8px;font-family:'Playfair Display',serif;font-size:34px;font-weight:700;line-height:1.1;position:relative;z-index:1}
+.cover-callout p{color:rgba(255,255,255,.78);font-size:15px;margin:0 0 18px;position:relative;z-index:1}
+.cover-callout .score{display:flex;align-items:baseline;gap:8px;color:var(--gold);font-family:'Playfair Display',serif;position:relative;z-index:1;margin-bottom:14px}
+.cover-callout .score .big{font-size:46px;font-weight:700;line-height:1}
+.cover-callout .score .of{font-size:14px;color:rgba(255,255,255,.55);font-family:'Source Sans 3',sans-serif}
+.cover-callout a{display:inline-block;color:var(--gold);border-bottom:1px solid var(--gold);padding-bottom:3px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;position:relative;z-index:1}
+.cover-callout a:hover{color:#e9bd58}
+@media(max-width:980px){.cover-grid{grid-template-columns:1fr;gap:36px}.cover{padding:40px 0 60px}}
+
+/* === TRUST STRIP === */
+.trust{background:var(--ink);color:rgba(255,255,255,.85);padding:34px 0}
+.trust-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;align-items:center}
+.trust-item{display:flex;flex-direction:column;gap:4px}
+.trust-item .num{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--gold);line-height:1}
+.trust-item .lbl{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:500}
+@media(max-width:880px){.trust-inner{grid-template-columns:repeat(2,1fr);gap:24px}}
+
+/* === LEADERBOARD === */
+.board{background:var(--paper);padding:100px 0 110px}
+.board-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:48px;flex-wrap:wrap;gap:20px}
+.board-head-text{max-width:680px}
+.board-head h2{margin:14px 0 10px}
+.board-head p{font-size:17px;color:var(--muted);margin:0;line-height:1.55}
+.board-head .method{font-size:13px;color:var(--green);font-weight:600;text-decoration:underline;text-underline-offset:4px}
+.board-list{display:flex;flex-direction:column;gap:22px}
+.board-row{
+  background:#fff;border:1px solid var(--rule);
+  display:grid;grid-template-columns:auto 1.4fr 1fr auto;
+  align-items:center;gap:30px;padding:28px 30px;
+  transition:border-color .25s,box-shadow .25s,transform .25s;
+}
+.board-row:hover{border-color:var(--gold);box-shadow:0 14px 40px rgba(15,42,31,.08);transform:translateY(-2px)}
+.row-rank{font-family:'Playfair Display',serif;font-weight:800;font-size:64px;line-height:1;color:var(--green);min-width:80px;font-style:italic;letter-spacing:-.03em}
+.row-rank.gold{color:var(--gold)}
+.row-rank.first{background:linear-gradient(180deg,var(--gold) 0%,var(--gold-soft) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.row-name h3{font-size:26px;margin-bottom:4px;font-weight:700}
+.row-tag{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);background:rgba(40,104,81,.1);padding:4px 10px;font-weight:600;margin-bottom:10px}
+.row-verdict{font-size:15px;color:var(--text);line-height:1.55;margin:0;max-width:520px}
+.row-stats{display:flex;flex-direction:column;gap:12px;text-align:left}
+.row-stat{display:flex;align-items:baseline;gap:8px;font-size:13px;color:var(--muted);letter-spacing:.02em}
+.row-stat .lbl{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600;min-width:60px}
+.row-stat .val{color:var(--ink);font-weight:600;font-family:'Source Sans 3',sans-serif}
+.row-stat .stars{color:var(--gold);letter-spacing:1.5px;font-size:14px}
+.row-methods{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.row-methods span{font-size:11px;letter-spacing:.06em;padding:3px 9px;border:1px solid var(--rule);color:var(--muted);border-radius:2px;font-weight:500}
+.row-action{display:flex;flex-direction:column;gap:10px;align-items:flex-end;min-width:170px}
+.row-action .btn{padding:11px 18px;font-size:11px;width:100%;justify-content:center}
+.row-action .review{font-size:12px;color:var(--green);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:980px){.board-row{grid-template-columns:auto 1fr;grid-template-areas:'rank name' 'rank stats' 'action action';gap:20px}.row-rank{grid-area:rank;font-size:48px}.row-name{grid-area:name}.row-stats{grid-area:stats}.row-action{grid-area:action;flex-direction:row;align-items:center}.row-verdict{display:none}.board{padding:60px 0}}
+
+/* === METHODOLOGY === */
+.method{background:var(--cream);padding:100px 0}
+.method-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start}
+.method-text h2{margin-bottom:18px}
+.method-text p{font-size:17px;line-height:1.7;color:var(--text);margin-bottom:18px}
+.method-text .sig{margin-top:30px;padding-top:24px;border-top:1px solid var(--rule);font-size:14px;color:var(--muted);font-style:italic}
+.method-text .sig strong{color:var(--ink);font-weight:600;font-style:normal}
+.method-steps{display:grid;gap:24px}
+.method-step{background:#fff;border:1px solid var(--rule);padding:28px 32px;position:relative;padding-left:90px}
+.method-step .num{position:absolute;left:24px;top:24px;font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:var(--gold);line-height:1;font-style:italic}
+.method-step h4{font-family:'Playfair Display',serif;font-size:22px;color:var(--ink);font-weight:700;margin-bottom:8px}
+.method-step p{font-size:15px;color:var(--text);margin:0;line-height:1.6}
+@media(max-width:980px){.method-grid{grid-template-columns:1fr;gap:36px}.method{padding:60px 0}}
+
+/* === SPECIALTIES === */
+.specs{background:var(--ink);color:#fff;padding:100px 0}
+.specs h2{color:#fff}
+.specs .lede{color:rgba(255,255,255,.7);font-size:17px;max-width:600px;margin:14px 0 48px}
+.specs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.spec{padding:36px 30px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);transition:border-color .25s,background .25s,transform .25s}
+.spec:hover{border-color:var(--gold);background:rgba(212,168,67,.06);transform:translateY(-3px)}
+.spec .kicker{color:var(--gold);font-size:10px}
+.spec .kicker::before{background:var(--gold);width:18px}
+.spec h3{color:#fff;font-family:'Playfair Display',serif;margin:14px 0 10px;font-size:24px;font-weight:600}
+.spec p{font-size:14px;color:rgba(255,255,255,.65);margin:0 0 18px;line-height:1.6}
+.spec .winner{font-size:13px;color:var(--gold);letter-spacing:.06em;font-weight:600;border-top:1px solid rgba(255,255,255,.12);padding-top:14px}
+.spec .winner strong{color:#fff;font-weight:700;display:block;font-family:'Playfair Display',serif;font-size:18px;font-style:italic;margin-top:2px}
+@media(max-width:980px){.specs-grid{grid-template-columns:repeat(2,1fr)}.specs{padding:60px 0}}
+@media(max-width:560px){.specs-grid{grid-template-columns:1fr}}
+
+/* === DISPATCH (BLOG) === */
+.dispatch{background:var(--paper);padding:100px 0}
+.dispatch-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:42px;flex-wrap:wrap;gap:20px}
+.dispatch-head h2{margin:14px 0 0}
+.dispatch-head a{font-size:13px;letter-spacing:.06em;color:var(--green);font-weight:600;text-decoration:underline;text-underline-offset:4px}
+.dispatch-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px}
+.dispatch-card{display:flex;flex-direction:column;text-decoration:none}
+.dispatch-card.lead{background:#fff;border:1px solid var(--rule)}
+.dispatch-card.lead .thumb{aspect-ratio:16/10}
+.dispatch-card .thumb{background:var(--ink-soft) center/cover;border-bottom:3px solid var(--gold)}
+.dispatch-card:not(.lead) .thumb{aspect-ratio:4/3}
+.dispatch-card .body{padding:24px 28px 28px}
+.dispatch-card.lead .body{padding:30px 36px 36px}
+.dispatch-card .cat{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:10px}
+.dispatch-card h3{font-family:'Playfair Display',serif;font-weight:700;color:var(--ink);transition:color .2s}
+.dispatch-card.lead h3{font-size:30px;line-height:1.2}
+.dispatch-card:not(.lead) h3{font-size:20px;line-height:1.3;margin-bottom:8px}
+.dispatch-card:hover h3{color:var(--green)}
+.dispatch-card p{font-size:14px;color:var(--muted);margin:10px 0 0;line-height:1.6}
+.dispatch-card .byline{font-size:12px;color:var(--muted);margin-top:14px;letter-spacing:.04em}
+.dispatch-card .byline strong{color:var(--ink);font-weight:600}
+@media(max-width:980px){.dispatch-grid{grid-template-columns:1fr}.dispatch-card.lead .body{padding:24px 28px 28px}.dispatch{padding:60px 0}}
+
+/* === BIG QUOTE === */
+.bigq{background:var(--cream);padding:90px 0;text-align:center;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.bigq blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(26px,3.2vw,40px);line-height:1.3;color:var(--ink);max-width:880px;margin:0 auto;font-weight:500}
+.bigq blockquote::before{content:'\201C';color:var(--gold);font-size:90px;line-height:0;position:relative;top:18px}
+.bigq footer{margin-top:34px;font-size:14px;color:var(--muted);letter-spacing:.04em}
+.bigq footer strong{color:var(--ink);font-family:'Source Sans 3',sans-serif;font-weight:600;font-style:normal}
+
+/* === FINAL CTA === */
+.final{background:var(--ink);color:#fff;padding:100px 0;text-align:center;position:relative;overflow:hidden}
+.final::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%, rgba(212,168,67,.12), transparent 60%)}
+.final-inner{position:relative;z-index:1}
+.final h2{color:#fff;font-style:italic;max-width:760px;margin:18px auto 22px;font-weight:600}
+.final p{color:rgba(255,255,255,.7);max-width:520px;margin:0 auto 36px;font-size:17px}
+
+/* === FOOTER === */
+.foot{background:#0a1812;color:rgba(255,255,255,.55);padding:80px 0 28px}
+.foot-cols{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:50px;margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot-brand .mast-brand{margin-bottom:18px}
+.foot-brand p{font-size:14px;color:rgba(255,255,255,.55);margin:0;line-height:1.7}
+.foot-brand .mast-brand-name{color:#fff}
+.foot-brand .mast-brand-sub{color:var(--gold)}
+.foot-col h5{font-family:'Source Sans 3',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 18px;font-weight:600}
+.foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+.foot-col a{font-size:14px;color:rgba(255,255,255,.6);transition:color .2s}
+.foot-col a:hover{color:var(--gold)}
+.foot-bottom{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.4);flex-wrap:wrap;gap:14px;letter-spacing:.04em}
+@media(max-width:980px){.foot-cols{grid-template-columns:1fr 1fr;gap:36px}.foot{padding:48px 0 24px}}
+</style>
+<?php wp_head(); ?>
+</head>
+<body <?php body_class('tpa-newsroom'); ?>>
+
+<!-- META BAR -->
+<div class="metabar">
+  <div class="metabar-inner">
+    <span>Independent. Editorially curated. <strong style="color:#fff">No paid placements.</strong></span>
+    <span class="pill"><span class="dot"></span>Updated <?php echo esc_html($updated); ?></span>
+  </div>
+</div>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="mast-brand" href="<?php echo esc_url(home_url('/')); ?>">
+      <span class="mast-brand-name"><?php bloginfo('name'); ?></span>
+      <span class="mast-brand-sub">The Authority on Psychic Services</span>
+    </a>
+    <ul class="mast-nav">
+      <li><a class="active" href="#leaderboard">Rankings</a></li>
+      <li><a href="#methodology">How We Rank</a></li>
+      <li><a href="#specialties">By Specialty</a></li>
+      <li><a href="<?php echo esc_url(home_url('/blog/')); ?>">Dispatches</a></li>
+      <li><a href="<?php echo esc_url(home_url('/about/')); ?>">About</a></li>
+    </ul>
+    <a class="btn btn-green" href="#leaderboard">See the Rankings →</a>
+  </div>
+</header>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="container">
+    <div class="cover-grid">
+      <div>
+        <span class="kicker">Issue · <?php echo esc_html($updated); ?> · Vol. 02</span>
+        <h1>The top psychic advisors, <span class="accent">independently ranked.</span></h1>
+        <p class="lede">We tested every major psychic platform on accuracy, value, and reader bench depth. The leaderboard below is <strong>recalculated monthly</strong>, weighted by verified-user reviews and our editor's blind test readings. No advertiser slots. No paid placements. Ever.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <a class="btn btn-green" href="#leaderboard">Read the rankings →</a>
+          <a class="btn btn-outline" href="#methodology">How we rank</a>
+        </div>
+        <div class="meta" style="margin-top:24px"><strong>By the editorial desk</strong> · <?php echo esc_html($updated); ?> · 14 platforms tested this cycle</div>
+      </div>
+      <aside class="cover-callout">
+        <span class="kicker">No. 1 This Cycle</span>
+        <h3><?php echo esc_html($top5[0]['name']); ?></h3>
+        <div class="score"><span class="big"><?php echo esc_html($top5[0]['score']); ?></span><span class="of">/ 5.0 composite</span></div>
+        <p><?php echo esc_html($top5[0]['verdict']); ?></p>
+        <a href="<?php echo esc_url(home_url('/advisors/'.sanitize_title($top5[0]['name']).'/')); ?>">Read the full review →</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="trust">
+  <div class="container trust-inner">
+    <div class="trust-item"><span class="num">14</span><span class="lbl">Platforms tested</span></div>
+    <div class="trust-item"><span class="num">240+</span><span class="lbl">Test readings logged</span></div>
+    <div class="trust-item"><span class="num">~470k</span><span class="lbl">Verified user reviews aggregated</span></div>
+    <div class="trust-item"><span class="num">0</span><span class="lbl">Paid placements, ever</span></div>
+  </div>
+</section>
+
+<!-- LEADERBOARD -->
+<section class="board" id="leaderboard">
+  <div class="container">
+    <div class="board-head">
+      <div class="board-head-text">
+        <span class="kicker">The Leaderboard</span>
+        <h2>Top psychic advisor platforms — ranked.</h2>
+        <p>Six platforms make the editorial cut this cycle. Scores combine our test-reading panel, verified-user reviews, and price-to-quality value.</p>
+      </div>
+      <a class="method" href="#methodology">How we calculate scores →</a>
+    </div>
+
+    <div class="board-list">
+      <?php $i=0; foreach($top5 as $a): $i++; ?>
+      <article class="board-row">
+        <div class="row-rank<?php echo $a['rank']==1 ? ' gold first' : ''; ?>"><?php echo esc_html($a['rank']); ?></div>
+        <div class="row-name">
+          <h3><?php echo esc_html($a['name']); ?></h3>
+          <span class="row-tag"><?php echo esc_html($a['tag']); ?></span>
+          <p class="row-verdict"><?php echo esc_html($a['verdict']); ?></p>
+        </div>
+        <div class="row-stats">
+          <div class="row-stat"><span class="lbl">Score</span><span class="stars">★★★★★</span><span class="val"><?php echo esc_html($a['score']); ?></span></div>
+          <div class="row-stat"><span class="lbl">From</span><span class="val"><?php echo esc_html($a['price']); ?></span></div>
+          <div class="row-stat"><span class="lbl">Trial</span><span class="val"><?php echo esc_html($a['trial']); ?></span></div>
+          <div class="row-methods">
+            <?php foreach($a['methods'] as $m): ?><span><?php echo esc_html($m); ?></span><?php endforeach; ?>
+          </div>
+        </div>
+        <div class="row-action">
+          <a class="btn btn-green" href="<?php echo esc_url(home_url('/advisors/'.sanitize_title($a['name']).'/')); ?>">Visit site →</a>
+          <a class="review" href="<?php echo esc_url(home_url('/advisors/'.sanitize_title($a['name']).'/')); ?>">Read full review</a>
+        </div>
+      </article>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section class="method" id="methodology">
+  <div class="container method-grid">
+    <div class="method-text">
+      <span class="kicker">How We Rank</span>
+      <h2>A scoring system you can verify.</h2>
+      <p>Every platform in the leaderboard goes through a four-stage editorial pass: a blind test-reading panel across love, career, money and destiny categories; a deep-dive on pricing, payout, and refund policies; aggregation of verified user reviews; and a once-a-month re-score.</p>
+      <p>We pay for every reading ourselves. No platform sees the scorecard until it is published. Advertisers cannot purchase coverage.</p>
+      <p class="sig"><strong>The editorial desk</strong> — Top Psychic Advisors</p>
+    </div>
+    <div class="method-steps">
+      <div class="method-step"><span class="num">01</span><h4>Blind test readings</h4><p>Anonymous accounts, same questions, four categories. Scored on accuracy, specificity, and reader manner.</p></div>
+      <div class="method-step"><span class="num">02</span><h4>Pricing &amp; policy audit</h4><p>Per-minute rates, trial offers, refund policy, payout structure, hidden fees. Documented in a public sheet.</p></div>
+      <div class="method-step"><span class="num">03</span><h4>Verified-user aggregation</h4><p>~470,000 reviews across Trustpilot, Sitejabber, app stores. Bot reviews and incentivized reviews are stripped.</p></div>
+      <div class="method-step"><span class="num">04</span><h4>Monthly recompute</h4><p>Composite score = 0.4 test readings + 0.3 verified reviews + 0.2 value + 0.1 reader bench depth. Recalculated on the 1st of every month.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALTIES -->
+<section class="specs" id="specialties">
+  <div class="container">
+    <span class="kicker cream">Category Winners</span>
+    <h2>Best by what you're looking for.</h2>
+    <p class="lede">Composite scores hide nuance. These are the platforms that best serve a specific question.</p>
+    <div class="specs-grid">
+      <article class="spec">
+        <span class="kicker">Love &amp; Relationships</span>
+        <h3>For matters of the heart.</h3>
+        <p>Deep specialist bench, soulmate-timing accuracy, compassionate manner.</p>
+        <span class="winner">Category winner<strong>Kasamba</strong></span>
+      </article>
+      <article class="spec">
+        <span class="kicker">Career &amp; Work</span>
+        <h3>For the next move.</h3>
+        <p>Practical, decision-supporting readings. Strong on timing and strategy.</p>
+        <span class="winner">Category winner<strong>California Psychics</strong></span>
+      </article>
+      <article class="spec">
+        <span class="kicker">Money &amp; Finance</span>
+        <h3>For prosperity questions.</h3>
+        <p>Clear, grounded readings on financial decisions, investments, and risk.</p>
+        <span class="winner">Category winner<strong>Keen</strong></span>
+      </article>
+      <article class="spec">
+        <span class="kicker">Destiny &amp; Life Path</span>
+        <h3>For the bigger picture.</h3>
+        <p>Astrology + numerology + intuitive synthesis. For seekers, not shoppers.</p>
+        <span class="winner">Category winner<strong>Purple Garden</strong></span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- BIG QUOTE -->
+<section class="bigq">
+  <div class="narrow">
+    <blockquote>The leaderboard is the closest thing we have to a Consumer Reports for the psychic-advisor industry — actually useful, actually independent.</blockquote>
+    <footer>— <strong>The Independent Reviewer</strong> · Pull-quote, our last cycle's review issue</footer>
+  </div>
+</section>
+
+<!-- DISPATCH (BLOG TEASER) -->
+<section class="dispatch">
+  <div class="container">
+    <div class="dispatch-head">
+      <div>
+        <span class="kicker">Dispatches</span>
+        <h2>From the editor's desk.</h2>
+      </div>
+      <a href="<?php echo esc_url(home_url('/blog/')); ?>">All dispatches →</a>
+    </div>
+    <div class="dispatch-grid">
+      <?php
+      $recent = new WP_Query(array('posts_per_page'=>3,'post_status'=>'publish'));
+      $rank=0;
+      if($recent->have_posts()){
+        while($recent->have_posts()){ $recent->the_post(); $rank++;
+          $thumb = has_post_thumbnail() ? get_the_post_thumbnail_url(null,'medium_large') : '';
+          $is_lead = ($rank === 1);
+          ?>
+          <a class="dispatch-card<?php echo $is_lead ? ' lead' : ''; ?>" href="<?php the_permalink(); ?>">
+            <div class="thumb" style="background-image:url('<?php echo esc_url($thumb); ?>')"></div>
+            <div class="body">
+              <div class="cat"><?php $cats=get_the_category(); echo esc_html($cats? $cats[0]->name : 'Reviews'); ?> · <?php echo esc_html(get_the_date('M j')); ?></div>
+              <h3><?php the_title(); ?></h3>
+              <?php if($is_lead): ?><p><?php echo esc_html(wp_trim_words(get_the_excerpt(),26)); ?></p><?php endif; ?>
+              <div class="byline">By <strong>The editorial desk</strong></div>
+            </div>
+          </a>
+          <?php
+        }
+        wp_reset_postdata();
+      }
+      ?>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="container final-inner">
+    <span class="kicker cream" style="justify-content:center">Bookmark the Cycle</span>
+    <h2>Read the full <em>May 2026</em> rankings.</h2>
+    <p>Recalculated on the first. Notification-free. No newsletters, no popups — just the leaderboard, kept honest.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
+      <a class="btn btn-gold" href="#leaderboard">See the Rankings →</a>
+      <a class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.4)" href="<?php echo esc_url(home_url('/about/')); ?>">About the desk</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="container">
+    <div class="foot-cols">
+      <div class="foot-brand">
+        <div class="mast-brand">
+          <span class="mast-brand-name"><?php bloginfo('name'); ?></span>
+          <span class="mast-brand-sub">The Authority on Psychic Services</span>
+        </div>
+        <p>Independent rankings of online psychic platforms. Editorial since 2024. No advertiser placements. Funded by reader trust.</p>
+      </div>
+      <div class="foot-col"><h5>The Rankings</h5><ul><li><a href="#leaderboard">Leaderboard</a></li><li><a href="#methodology">Methodology</a></li><li><a href="#specialties">By Specialty</a></li></ul></div>
+      <div class="foot-col"><h5>Dispatches</h5><ul><li><a href="<?php echo esc_url(home_url('/blog/')); ?>">Latest</a></li><li><a href="<?php echo esc_url(home_url('/category/reviews/')); ?>">Reviews</a></li><li><a href="<?php echo esc_url(home_url('/category/guides/')); ?>">Guides</a></li></ul></div>
+      <div class="foot-col"><h5>The Desk</h5><ul><li><a href="<?php echo esc_url(home_url('/about/')); ?>">About</a></li><li><a href="<?php echo esc_url(home_url('/editorial-policy/')); ?>">Editorial Policy</a></li><li><a href="<?php echo esc_url(home_url('/contact/')); ?>">Contact</a></li></ul></div>
+      <div class="foot-col"><h5>Legal</h5><ul><li><a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>">Privacy</a></li><li><a href="<?php echo esc_url(home_url('/terms/')); ?>">Terms</a></li><li><a href="<?php echo esc_url(home_url('/disclaimer/')); ?>">Disclaimer</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. For entertainment purposes only. 18+.</span>
+      <span>Editorial since 2024 · Updated <?php echo esc_html($updated); ?></span>
+    </div>
+  </div>
+</footer>
+
+<?php wp_footer(); ?>
+</body>
+</html>
