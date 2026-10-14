@@ -1,0 +1,6 @@
+/* WEB DS custom fonts (paths rewritten for WP theme assets dir) */
+@font-face { font-family: 'Season Sans'; src: url('./fonts/SeasonSans-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Season Sans'; src: url('./fonts/SeasonSans-Medium.woff2')  format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Season Sans'; src: url('./fonts/SeasonSans-Bold.woff2')    format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Season Mix';  src: url('./fonts/SeasonMix-Regular.woff2')  format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Season Mix';  src: url('./fonts/SeasonMix-Medium.woff2')   format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
