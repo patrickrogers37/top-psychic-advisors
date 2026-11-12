@@ -1,0 +1,116 @@
+@import url('./colors_and_type.css');
+
+/* ============ Shared mystical primitives ============ */
+.starfield {
+  position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+}
+.starfield .star {
+  position: absolute; border-radius: 50%;
+  background: white; opacity: 0;
+  animation: twinkle var(--dur, 4s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.6); }
+  50%      { opacity: var(--peak, 0.8); transform: scale(1); }
+}
+.aurora {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+}
+.aurora::before, .aurora::after {
+  content: ''; position: absolute; border-radius: 50%; filter: blur(80px);
+}
+.aurora::before {
+  width: 600px; height: 600px; left: -10%; top: -20%;
+  background: radial-gradient(circle, rgba(142,140,240,.35), transparent 70%);
+  animation: drift 22s ease-in-out infinite alternate;
+}
+.aurora::after {
+  width: 700px; height: 700px; right: -15%; top: 10%;
+  background: radial-gradient(circle, rgba(242,153,74,.18), transparent 70%);
+  animation: drift 28s ease-in-out infinite alternate-reverse;
+}
+@keyframes drift {
+  0%   { transform: translate(0,0) scale(1); }
+  100% { transform: translate(60px,-40px) scale(1.2); }
+}
+
+/* Score reveal */
+.score-bar {
+  height: 6px; background: var(--lilac-09); border-radius: 999px; overflow: hidden;
+  position: relative;
+}
+.score-bar > span {
+  display: block; height: 100%;
+  background: var(--gradient-orchid);
+  width: var(--w, 0%);
+  border-radius: 999px;
+  transition: width 1.2s cubic-bezier(.2,.7,.3,1);
+}
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 22px; border-radius: var(--radius-750);
+  font-family: var(--font-family-body); font-weight: 500; font-size: 15px;
+  cursor: pointer; border: none; transition: all 150ms ease-in-out;
+  text-decoration: none;
+}
+.btn--primary {
+  background: var(--gradient-orchid);
+  color: white;
+}
+.btn--primary:hover { box-shadow: var(--shadow-dark-300); transform: translateY(-1px); }
+.btn--ghost {
+  background: transparent; color: var(--purple-05);
+  border: 1px solid var(--lilac-07);
+}
+.btn--ghost:hover { background: var(--white-alpha-05); color: var(--purple-04); }
+
+/* Chip / Tag */
+.tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px; border-radius: var(--radius-full);
+  font-size: 12px; font-weight: 500;
+  border: 1px solid var(--lilac-07);
+  color: var(--purple-01);
+  background: var(--white-alpha-05);
+}
+.tag--accent { color: var(--purple-05); border-color: var(--purple-08); background: var(--violet-alpha-10); }
+.tag--orange { color: var(--orange-04); border-color: var(--orange-08); background: rgba(242,153,74,.08); }
+
+/* Crests / Sigils — generic SVG mark wrapper */
+.crest {
+  width: 64px; height: 64px; border-radius: var(--radius-full);
+  background: var(--gradient-amethyst);
+  display: grid; place-items: center;
+  border: 1px solid var(--lilac-07);
+  box-shadow: inset 0 0 30px rgba(142,140,240,.25);
+}
+
+/* Hover lift card */
+.lift { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.lift:hover { transform: translateY(-3px); border-color: var(--purple-07) !important; }
+
+/* Star rating */
+.stars { display: inline-flex; gap: 2px; color: var(--orange-05); }
+
+/* Tarot card (used in B) */
+.tarot {
+  width: 100%; aspect-ratio: 0.62;
+  border-radius: var(--radius-300);
+  background: linear-gradient(160deg, #1a1840, #2a2570 70%, #3a237a);
+  border: 1px solid var(--lilac-07);
+  position: relative; overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform .6s cubic-bezier(.2,.7,.3,1);
+}
+.tarot::before {
+  content: ''; position: absolute; inset: 8px;
+  border: 1px solid rgba(142,140,240,.3);
+  border-radius: var(--radius-200);
+  pointer-events: none;
+}
+.tarot-deck:hover .tarot { transform: rotateY(-4deg) translateY(-6px); }
